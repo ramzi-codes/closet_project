@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if current_user.is_authenticated %}
+    <h2>Hi {{current_user.username}}!</h2>
+    <a href="/logout" class="button">Logout</a>
+    {% else %}
+    <a href="/register" class="button">Register</a>
+    <a href="/login" class="button">Login</a>
+    {% endif %}
+    <h2>Closet</h2>
+
+    <h4>Tops</h4>
+    <ul>
+        {% for t in Top%}
+    <li>
+        {{ t.color }}, {{ t.type_top }}, <img src="{{ url_for('static', filename='images/' ~ t.image_tt.filename) }}" alt="Image">
+        <a href="/delete_tops/{{t.id}}" class="button">Delete</a>
+    </li>
+    {% endfor %}
+    <h4>Bottoms</h4>
+        {% for b in Bottom%}
+    <li>
+        {{ b.color }}, {{ b.shorts_or_pants }}, {{ b.type_bottoms }}, <img src="{{ url_for('static', filename='images/' ~ b.image_bb.filename) }}" alt="Image">
+        <a href="/delete_bottoms/{{b.id}}" class="button">Delete</a>
+    </li>
+    {% endfor %}
+    <h4>Shoes</h4>
+        {% for s in Shoe%}
+    <li>
+        {{ s.color }}, {{ s.brand }}, {{ s.purpose }}, <img src="{{ url_for('static', filename='images/' ~ s.image_ss.filename) }}" alt="Image">
+        <a href="/delete_shoes/{{s.id}}" class="button">Delete</a>
+    </li>
+    {% endfor %}
+        {% for i in images%}
+    {% endfor %}
+    </ul>
+
+    <a href="/add_top" class="button">Add a top</a>
+    <a href="/add_bottom" class="button">Add bottoms</a>
+    <a href="/add_shoes" class="button">Add shoes</a>
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h3>To Do List</h3>
+    <ul>
+        {% for o in objectives%}
+    <li>
+        {{ o.text }}, {{ o.date }}
+        <a href="/edit_objective/{{o.id}}" class="button">Edit</a>
+        <a href="/delete_objective/{{o.id}}" class="button">Delete</a>
+    </li>
+    <input type="checkbox" id="status_box" name="status" {% if o.status == "complete" %}checked{% endif %}>
+      <label for="status_box"> Complete</label><br>
+
+
+    {% endfor %}
+
+    </ul>
+    <a href="/add_objective" class="button">Add an objective</a>
+    <a href="/incomplete_objectives" class="button">Hide Complete</a>
+
+
+{% endblock %}

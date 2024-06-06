@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+      <form action = "/edit_objective/{{Objective.id}}" method = "post">
+      <p>Modify your objective here</p>
+      <textarea name="text">{{Objective.text}}</textarea>
+      <input type="date" id="1" value="{{Objective.date}}" name="date">
+      <input type="checkbox" id="status_box" name="status" {% if Objective.status == "complete" %}checked{% endif %}>
+      <label for="status_box"> Complete</label><br>
+
+      <input type = "submit" value = "submit" />
+
+      </form>
+{% endblock %}

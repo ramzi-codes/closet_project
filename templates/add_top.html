@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+      <form action = "/add_top" method = "post" enctype="multipart/form-data">
+      <p>Add your new top</p>
+      <textarea name="type">type</textarea>
+      <textarea name="color">color</textarea>
+      <input type="file" name="file" accept="image/*">
+      <input type = "submit" value = "submit" />
+
+      </form>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+      <form action = "/add_bottom" method = "post" enctype="multipart/form-data">
+      <p>Add your new pair of bottoms</p>
+      <textarea name="shorts_or_pants">shorts or pants</textarea>
+      <textarea name="color">color</textarea>
+      <textarea name="type_bottoms">type of bottoms</textarea>
+      <input type="file" name="file" accept="image/*">
+      <input type = "submit" value = "submit" />
+
+      </form>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+      <form action = "/add_objective" method = "post">
+      <p>Enter your objective here</p>
+      <textarea name="text"></textarea>
+      <input type="date" id="1" value="yyyy-month-date" name="date">
+
+      <input type = "submit" value = "submit" />
+
+      </form>
+{% endblock %}
